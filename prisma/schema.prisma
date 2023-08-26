@@ -12,3 +12,83 @@ model User {
   id Int @id @default(autoincrement())
   email String @unique
 }
+
+model Skill {
+  id Int @id @default(autoincrement())
+  name String
+  experienceSkills ExperienceSkill[]
+  projectSkills ProjectSkill[]
+}
+
+model Experience {
+  id Int @id @default(autoincrement())
+  title String
+  company String
+  startDate DateTime
+  endDate DateTime
+  description String 
+  experienceSkills ExperienceSkill[]
+}
+
+model ExperienceSkill {
+  id Int @id @default(autoincrement())
+  skill Skill @relation(fields: [skillId], references: [id])
+  skillId Int
+  experience Experience @relation(fields: [experienceId], references: [id])
+  experienceId Int
+
+  @@index([skillId])
+  @@index([experienceId])
+}
+
+model Project {
+  id Int @id @default(autoincrement())
+  date DateTime
+  title String
+  slug String
+  description String
+  summary String
+  url String
+  source String 
+  headerImage String
+  projectSkills ProjectSkill[]
+  projectImages ProjectImage[]
+  sortOrder Int
+}
+
+model ProjectImage {
+  id Int @id @default(autoincrement())
+  asset String 
+  alt String
+  project Project @relation(fields: [projectId], references: [id])
+  projectId Int
+
+  @@index([projectId])
+}
+
+model ProjectSkill {
+  id Int @id @default(autoincrement())
+  skill Skill @relation(fields: [skillId], references: [id])
+  skillId Int
+  project Project @relation(fields: [projectId], references: [id])
+  projectId Int
+
+  @@index([skillId])
+  @@index([projectId])
+}
+
+model Awards {
+  id Int @id @default(autoincrement())
+  award String
+  entity String
+  date DateTime
+  description String 
+}
+
+model Education {
+  id Int @id @default(autoincrement())
+  degree String
+  school String
+  startDate DateTime
+  endDate DateTime
+}
