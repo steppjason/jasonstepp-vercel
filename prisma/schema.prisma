@@ -13,6 +13,17 @@ model User {
   email String @unique
 }
 
+model Config {
+  id Int @id @default(autoincrement())
+  siteName String
+  siteURL String 
+  email String
+  twitter String
+  github String
+  linkedin String
+  instagram String
+}
+
 model Skill {
   id Int @id @default(autoincrement())
   name String

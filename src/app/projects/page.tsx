@@ -3,7 +3,7 @@ import { Metadata } from "next"
 export const metadata: Metadata = {
     title: 'Projects',
     description: 'Projects description',
-  }
+}
 
 export default function Projects(){
     return (
