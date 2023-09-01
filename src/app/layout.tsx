@@ -1,9 +1,9 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import NextAuthProvider from './_lib/provider'
+import NextAuthProvider from '@/_lib/provider'
 
 import type { Metadata } from 'next'
-import type { Prop } from './_types/react'
+import type { Prop } from '@/_types/react'
 
 const inter = Inter({ subsets: ['latin'] })
 
