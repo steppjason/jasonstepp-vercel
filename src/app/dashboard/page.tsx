@@ -1,4 +1,8 @@
-import { Metadata } from 'next'
+'use client'
+
+import { signIn, signOut, useSession } from 'next-auth/react'
+
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
 	title: 'Dashboard - Jason Stepp',
@@ -6,5 +10,22 @@ export const metadata: Metadata = {
 }
 
 export default function Dashboard() {
-	return <div></div>
+	const { status, data: session } = useSession()
+
+	if (session && session.user) {
+		console.log(session)
+		return (
+			<>
+				<div>You are logged in</div>
+				<button onClick={() => signOut()}>Sign Out</button>
+			</>
+		)
+	}
+
+	return (
+		<>
+			<div>You are not logged in</div>
+			<button onClick={() => signIn()}>Sign In</button>
+		</>
+	)
 }
