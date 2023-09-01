@@ -4,7 +4,7 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
 	title: 'Dashboard - Jason Stepp',
 	description: '',
 }
