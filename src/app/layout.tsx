@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import NextAuthProvider from '@/_lib/provider'
 
 import type { Metadata } from 'next'
-import type { Prop } from '@/_types/react'
+import type { Prop } from '@/_types'
 
 const inter = Inter({ subsets: ['latin'] })
 
